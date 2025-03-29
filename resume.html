@@ -55,7 +55,7 @@
     
         <!-- Resume Content in Two Columns -->
         <div id="resume" class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- Left Column: Skills, Competitions, Contact and Summary -->
+            <!-- Left Column: Skills, Competitions, Contact, Education -->
             <div class="space-y-6">
                 <h2 class="text-3xl font-bold text-blue-500 topic-line">Skills</h2>
                 <ul class="list-disc pl-5 text-lg">
@@ -87,27 +87,34 @@
                     <li>Cookeville, TN 38501</li>
                     <li><a href="mailto:Behnjaminhector04@gmail.com" class="text-blue-300">Behnjaminhector04@gmail.com</a></li>
                 </ul>
-                
-                <h2 class="text-3xl font-bold text-blue-500 topic-line">Summary</h2>
-                <p class="text-lg">Aspiring cybersecurity professional with expertise in reverse engineering, penetration testing, and system hardening. Currently pursuing a Master's in Computer Science with a focus on cybersecurity at Tennessee Tech University. Passionate about tackling cybersecurity challenges through practical hands-on experience.</p>
-            </div>
 
-            <!-- Right Column: Experience, Education -->
-            <div class="space-y-6">
-                <h2 class="text-3xl font-bold text-blue-500 topic-line">Experience</h2>
-                <h3 class="font-bold text-xl">Research</h3>
-                <p class="text-lg with-bullet"><strong>Satellite Security:</strong> Conducting research in “Zero Trust” security for satellites built off the blockchain model, developing encrypted verification methods to ensure trusted communication between company-owned satellites and ground stations. Designing a system to dynamically distribute AI models across satellites for on-demand deployment while incorporating load balancing and low power limitations.</p>
-
-                <h3 class="font-bold text-xl with">Campus Organizations</h3>
-                <p class="text-lg with-bullet"><strong>Cyber Eagles:</strong> Defensive Cyber Interest Group team lead, overseeing projects aimed at presenting defensive cybersecurity concepts, managing a vSphere range, and preparing individuals for real-world cybersecurity concepts while fostering a collaborative learning environment.</p>
-                <p class="text-lg with-bullet"><strong>TN Tech CCDC Team Member:</strong> Alternate for Linux systems & Firewalling on Palo Alto/Pfsense. Knowledge of managing firewall systems and Linux systems implementing skills in Bash, System Hardening, SIEM, and Firewall management. Created multiple mock CCDC infra consisting of over 16 machines with web, mail, file share, and domain systems configured to be vulnerable with persistence and Red Teaming using SliverC2 and Realm as well as creating vulnerabilities within Linux systems with PAM/SSH/Services for a live training sessions.</p>
-
+                <!-- Education Section (Moved to Left Column) -->
                 <h2 class="text-3xl font-bold text-blue-500 topic-line">Education</h2>
                 <p class="text-lg"><strong>Tennessee Technological University</strong><br>
                     <strong>Major:</strong> Computer Science (Master's in Cybersecurity) | Expected Graduation: 2027<br>
                 <p class="text-lg"><strong>Degree:</strong> Computer Science Bachelor of Engineering | Cybersecurity (2025)</p>
                 <strong>GPA:</strong> 3.8</p>
+            </div>
 
+            <!-- Right Column: Experience, Projects -->
+            <div class="space-y-6">
+                <h2 class="text-3xl font-bold text-blue-500 topic-line">Experience</h2>
+                <h3 class="font-bold text-xl">Research</h3>
+                <p class="text-lg with-bullet"><strong>Satellite Security:</strong> Conducting research in “Zero Trust” security for satellites built off the blockchain model, developing encrypted verification methods to ensure trusted communication between company-owned satellites and ground stations. Designing a system to dynamically distribute AI models across satellites for on-demand deployment while incorporating load balancing and low power limitations. Designed and built a physical testbed simulating a satellite constellation using 10 Jetson Orin devices as satellites and 5 Raspberry Pis as ground stations to model secure communication and network interactions.</p>
+
+                <h3 class="font-bold text-xl">Campus Organizations</h3>
+                <p class="text-lg with-bullet"><strong>Cyber Eagles:</strong> Defensive Cyber Interest Group team lead, overseeing projects aimed at presenting defensive cybersecurity concepts, managing a vSphere range, and preparing individuals for real-world cybersecurity concepts while fostering a collaborative learning environment.</p>
+                <p class="text-lg with-bullet"><strong>TN Tech CCDC Team Member:</strong> Alternate for Linux systems & Firewalling on Palo Alto/Pfsense. Knowledge of managing firewall systems and Linux systems implementing skills in Bash, System Hardening, SIEM, and Firewall management. Created multiple mock CCDC infra consisting of over 16 machines with web, mail, file share, and domain systems configured to be vulnerable with persistence and Red Teaming using SliverC2 and Realm for live training sessions.</p>
+
+                <!-- Projects Section -->
+                <h2 class="text-3xl font-bold text-blue-500 topic-line">Projects</h2>
+                <ul class="list-disc pl-5 text-lg space-y-6">
+                    <li><strong>Dev-Ops Server:</strong> Designed virtual servers on Google Cloud Platform (GCP) to support multi-environment applications. Automated server configuration, application deployment, and system maintenance using Ansible. Documented the entire project lifecycle in a detailed professional manual, enabling reproducibility and providing comprehensive guidance for replication or future development.</li>
+                    <li><strong>Rubber Ducky:</strong> Engineered a functional Rubber Ducky device using a Raspberry Pi Pico to simulate a HID (Human Interface Device) attack for ethical hacking and penetration testing.</li>
+                    <li><strong>GoLang Network Mapper:</strong> Developed a high-performance network scanning tool in Go that automates host discovery and vulnerability assessment using Nmap. The tool supports Ping Scanning, Comprehensive Scanning, and Concurrent Scanning. It also includes configurable execution via a config.json file and dynamic subnet and flag settings, making it a powerful tool for network reconnaissance and security assessments.</li>
+                    <li><strong>Personal Website:</strong> Developed a personal website showcasing my experience, projects, and academia. The site includes an "About Me" section, links to my GitHub and LinkedIn, and detailed insights into my cybersecurity work, serving as a central hub for my technical portfolio and professional presence.</li>
+                    <li><strong>Porta Pack/SDR & RF:</strong> Looking into PortaPack RF analyzer capabilities for reconnaissance and personal interest while actively working with SDR technology.</li>
+                </ul>
             </div>
         </div>
 
