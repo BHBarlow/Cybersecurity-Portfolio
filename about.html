@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/wifi-alt.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <title>Behnjamin Barlow - About Me</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Courier New", monospace;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            background-image: url(images/bitcoin3.jpg);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #00ff00;
+            line-height: 1.6;
+            padding: 2rem;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 10px #00ff00;
+            color: white;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .profile-section {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid #00ff00;
+            margin-bottom: 1rem;
+            margin-right: 0;
+        }
+
+        @media (min-width: 768px) {
+            .profile-img {
+                margin-right: 2rem;
+                margin-bottom: 0;
+            }
+        }
+
+        .profile-text {
+            flex: 1;
+        }
+
+        .topic-line {
+            border-left: 4px solid #00ff00;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .two-columns {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        li::before {
+            content: ">";
+            position: absolute;
+            left: 0;
+            color: #00ff00;
+        }
+
+        /* First, make sure your icons don't inherit the green color */
+        .skill-icon {
+            color: initial !important; /* This forces icons to use their default colors */
+            margin-left: 8px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        /* Then set specific colors for each icon */
+        .fa-linux, .fa-ubuntu { color: #E95420 !important; }
+        .fa-code { color: #007ACC !important; }
+        .fa-git-alt { color: #F05032 !important; }
+        .fa-cogs { color: #FF6B6B !important; }
+        .fa-database { color: #4479A1 !important; }
+        .fa-network-wired { color: #0078D7 !important; }
+        .fa-bitcoin { color: #F7931A !important; }
+        .fa-bug { color: #ED1C24 !important; }
+        .fa-map { color: #4285F4 !important; }
+        .fa-server { color: #00ADEF !important; }
+        .fa-cloud { color: #0089D6 !important; }
+        .fa-desktop { color: #00B388 !important; }
+        .fa-shield-alt { color: #FFBB00 !important; }
+        .fa-search { color: #FF5722 !important; }
+        .fa-user-secret { color: #7B1FA2 !important; }
+
+        a {
+            color: #00ff00;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            text-shadow: 0 0 10px #00ff00;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .button {
+            padding: 0.8rem 1.5rem;
+            background-color: transparent;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .button:hover {
+            background-color: #00ff00;
+            color: #0a0a0a;
+            box-shadow: 0 0 15px white;
+        }
+
+        .social-icons {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .nav-links a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            text-shadow: 0 0 10px white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ABOUT ME</h1>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="resume.html">Resume</a>
+            </div>
+        </div>
+
+        <div class="profile-section">
+            <img src="images/profile.jpg" alt="Behnjamin Barlow" class="profile-img">
+            <div class="profile-text">
+                <p>I am a senior at Tennessee Tech pursuing a <strong>M.S in cybersecurity</strong> with a passion for advancing digital security practices. I'm a <strong>Cybercorps SFS scholar</strong> in a degree path designated for Cyber Defense Education by the National Centers of Academic Excellence in cybersecurity.</p>
+                <br>
+                <p>I'm actively involved in clubs like <strong>Cyber Eagles</strong> (as President), <strong>DCIG</strong> (as Team Lead), and participate in competitions like <strong>CCDC</strong> and <strong>NCL CTF</strong>. My research focuses on satellite security, implementing Zero Trust architectures based on blockchain models, and developing secure communication protocols between satellites and ground stations.</p>
+                <br>
+                <p>My projects have included <strong>GoLang network mapping tools, server automation with GCP and Ansible</strong>, designing and building infrastructure for simulation competitions, and managing a Proxmox home lab environment. I'm driven to help foster growth in the cybersecurity community while advocating for better security practices, with a strong interest in cyber crime investigation and the tools and techniques used in the real world.</p>
+            </div>
+        </div>
+
+        <div class="two-columns">
+            <div>
+                <div class="topic-line">
+                    <h2>Technical Skills</h2>
+                    <ul>      
+                        <li>Linux Hardening & Administration<i class="fab fa-linux skill-icon"></i></li>
+                        <li>C++, Python, GoLang, HTML, JavaScript<i class="fas fa-code skill-icon"></i></li>
+                        <li>Git & Version Control<i class="fab fa-git-alt skill-icon"></i></li>
+                        <li>Ansible & Salt Stack<i class="fas fa-cogs skill-icon"></i></li>
+                        <li>MySQL & MongoDB<i class="fas fa-database skill-icon"></i></li>
+                        <li>Reverse Engineering (Ghidra)<i class="fas fa-bug skill-icon"></i></li>
+                        <li>Penetration Testing<i class="fas fa-user-secret skill-icon"></i></li>
+                        <li>Nmap & SliverC2<i class="fas fa-map skill-icon"></i></li>
+                        <li>Infrastructure as Code (IaC)<i class="fas fa-server skill-icon"></i></li>
+                        <li>Proxmox VE & VMware vSphere<i class="fas fa-desktop skill-icon"></i></li>
+                        <li>Firewall Management (pfSense)<i class="fas fa-shield-alt skill-icon"></i></li>
+                        <li>Threat Hunting & Incident Response<i class="fas fa-search skill-icon"></i></li>
+                    </ul>
+                </div>
+                <div class="topic-line">
+                    <h2>Research Experience</h2>
+                    <ul>
+                        <li>Zero Trust security for satellites using blockchain</li>
+                        <li>Encrypted verification methods for satellite-to-ground communication</li>
+                        <li>AI model distribution across satellite constellations</li>
+                        <li>Built physical testbed with 10 Jetson Orin devices and 5 Raspberry Pis</li>
+                    </ul>
+                </div>
+                <div class="topic-line">
+                    <h2>Contact Information</h2>
+                    <ul>
+                        <li>Email: <a href="mailto:bhbarlow42@tntech.edu">bhbarlow42@tntech.edu</a></li>
+                        <li>Personal Email: <a href="mailto:behnjaminhector04@gmail.com">behnjaminhector04@gmail.com</a></li>
+                        <li>Phone: <a href="tel:931-472-9818">931-472-9818</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="topic-line">
+                    <h2>Leadership & Involvement</h2>
+                    <ul>
+                        <li>President of Cyber Eagles - coordinating operations, planning, and member engagement</li>
+                        <li>DCIG Team Lead - overseeing defensive cybersecurity projects</li>
+                        <li>CCDC Nationals Team Member 2025 - Websites and Databases specialist</li>
+                        <li>Created mock CCDC infrastructure with 16+ machines for training</li>
+                    </ul>
+                </div>
+                <div class="topic-line">
+                    <h2>Projects</h2>
+                    <ul>
+                        <li>GoLang Network Mapper - high-performance scanning tool</li>
+                        <li>Cyber Range Application Developer (Summer 2025 Internship)</li>
+                        <li>ProxMox Home Lab - virtualization environment for testing and development</li>
+                        <li>Personal Website Portfolio</li>
+                        <li>SDR/RF research with PortaPack capabilities</li>
+                    </ul>
+                </div>
+                <div class="topic-line">
+                    <h2>Education</h2>
+                    <ul>
+                        <li>Tennessee Technological University (NCAE)</li>
+                        <li>B.S. Computer Science/Cybersecurity (Fall 2025) - GPA: 3.8</li>
+                        <li>M.S. Computer Science/Cybersecurity (Fall 2027)</li>
+                        <li>Cybercorps SFS Scholar</li>
+                    </ul>
+                </div>
+                <div class="topic-line">
+                    <h2>Hobbies & Interests</h2>
+                    <ul>
+                        <li>Home labbing & Cybersecurity competitions</li>
+                        <li>Building electronics projects</li>
+                        <li>Rock climbing, hiking & fitness</li>
+                        <li>Chess & strategic games</li>
+                        <li>Reading technical articles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <a href="https://github.com/bhbarlow" target="_blank" class="button">
+                <svg class="social-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub
+            </a>
+            <a href="https://linkedin.com/in/bhbarlow" target="_blank" class="button">
+                <svg class="social-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                LinkedIn
+            </a>
+            <a href="resume.pdf" download class="button">
+                <svg class="social-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                Download Resume
+            </a>
+        </div>
+    </div>
+<div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS("particles-js", {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#00ff00"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#00ff00",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 2,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "grab"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 140,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        });
+    </script>    
+
+</body>
+</html>
