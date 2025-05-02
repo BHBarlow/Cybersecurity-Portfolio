@@ -210,8 +210,12 @@
                     return 'resume.txt  about.txt  projects/  skills/  contact.md';
                 } else if (cmd === 'hostname -f') {
                     return 'sloppyjoe.local.domain';
-                } else if (cmd === 'hostname -I') {
+                } else if (cmd === 'hostname -I') { // nice
                     return '36.17.85.50';
+                } else if (cmd === 'exit') {
+                    window.close();
+                    return 'Attempting to close window...';
+                }
                 }  else if (cmd === 'ps -aux') {
                     return `USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
                     root       1   0.0  0.1 169652  9488 ?        Ss   May01   0:12 /sbin/init splash
