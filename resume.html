@@ -1,474 +1,431 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/wifi-alt.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Behnjamin Barlow - Resume</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Courier New", monospace;
-        }
-
-        body {
-            background-color: #0a0a0a;
-            background-image: url(images/bitcoin3.jpg);
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #00ff00;
-            line-height: 1.6;
-            padding: 2rem;
-            min-height: 100vh;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 80%;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-            background-color: rgba(0, 0, 0, 0.9);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
-        }
-
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px #00ff00;
-            color: white;
-        }
-
-        .topic-line {
-            border-left: 4px solid #00ff00;
-            padding-left: 15px;
-            margin-bottom: 20px;
-        }
-
-        .two-columns {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .two-columns {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-
-        h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            margin-top: 1rem;
-            color: white;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 1rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-            position: relative;
-            padding-left: 1rem;
-        }
-
-        li::before {
-            content: ">";
-            position: absolute;
-            left: 0;
-            color: #00ff00;
-        }
-
-        /* First, make sure your icons don't inherit the green color */
-        .skill-icon {
-            color: initial !important; /* This forces icons to use their default colors */
-            margin-left: 8px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        /* Then set specific colors for each icon */
-        .fa-linux, .fa-ubuntu { color: #E95420 !important; }
-        .fa-code { color: #007ACC !important; }
-        .fa-git-alt { color: #F05032 !important; }
-        .fa-cogs { color: #FF6B6B !important; }
-        .fa-database { color: #4479A1 !important; }
-        .fa-network-wired { color: #0078D7 !important; }
-        .fa-bitcoin { color: #F7931A !important; }
-        .fa-bug { color: #ED1C24 !important; }
-        .fa-map { color: #4285F4 !important; }
-        .fa-server { color: #00ADEF !important; }
-        .fa-cloud { color: #0089D6 !important; }
-        .fa-desktop { color: #00B388 !important; }
-        .fa-shield-alt { color: #FFBB00 !important; }
-        .fa-search { color: #FF5722 !important; }
-        .fa-user-secret { color: #7B1FA2 !important; }
-
-        a {
-            color: #00ff00;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        a:hover {
-            text-shadow: 0 0 10px #00ff00;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .button {
-            padding: 0.8rem 1.5rem;
-            background-color: transparent;
-            border: 2px solid #00ff00;
-            color: #00ff00;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .button:hover {
-            background-color: #00ff00;
-            color: #0a0a0a;
-            box-shadow: 0 0 15px white;
-        }
-
-        .social-icons {
-            width: 20px;
-            height: 20px;
-            fill: white;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .nav-links a {
-            color: #00ff00;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            text-shadow: 0 0 10px white;
-        }
-
-        .experience-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .experience-title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: grey;
-        }
-
-        .experience-description {
-            padding-left: 1rem;
-        }
-    </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>RESUME</h1>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Behnjamin Barlow</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
+                <a href="resume.html" class="active">Resume</a>
                 <a href="about.html">About Me</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </div>
+    </nav>
 
-        <div class="two-columns">
-            <div>
-                <div class="topic-line">
-                    <h2>SFS Scholar</h2>
-                    <p>In a Degree Path Designated for Cyber Defense Education by the National Centers of Academic Excellence in cybersecurity.</p>
+    <main class="main-content">
+        <div class="container">
+            <header class="page-header">
+                <span class="header-watermark">RESUME</span>
+                <h1 class="page-title">Resume</h1>
+                <div class="page-subtitle">
+                    Professional experience, education, and technical expertise in cybersecurity.
                 </div>
+            </header>
 
-                <div class="topic-line">
-                    <h2>Technical Skills</h2>
-                    <ul>
-                        <li>Linux Hardening & Administration<i class="fab fa-linux skill-icon"></i></li>
-                        <li>C++, Python, GoLang, HTML, JavaScript<i class="fas fa-code skill-icon"></i></li>
-                        <li>Git & Version Control<i class="fab fa-git-alt skill-icon"></i></li>
-                        <li>Ansible & Salt Stack<i class="fas fa-cogs skill-icon"></i></li>
-                        <li>MySQL & MongoDB<i class="fas fa-database skill-icon"></i></li>
-                        <li>Networking & Web Security<i class="fas fa-network-wired skill-icon"></i></li>
-                        <li>Blockchain & Zero Trust<i class="fab fa-bitcoin skill-icon"></i></li>
-                        <li>Reverse Engineering (Ghidra)<i class="fas fa-bug skill-icon"></i></li>
-                        <li>Nmap & SliverC2<i class="fas fa-map skill-icon"></i></li>
-                        <li>Infrastructure as Code (IaC)<i class="fas fa-server skill-icon"></i></li>
-                        <li>OpenTofu & HashiCorp CDK<i class="fas fa-cloud skill-icon"></i></li>
-                        <li>Proxmox VE & VMware vSphere<i class="fas fa-desktop skill-icon"></i></li>
-                        <li>Canonical Microcloud<i class="fas fa-cloud skill-icon"></i></li>
-                        <li>Firewall Management (pfSense)<i class="fas fa-shield-alt skill-icon"></i></li>
-                        <li>Threat Hunting & Incident Response<i class="fas fa-search skill-icon"></i></li>
-                        <li>Red Teaming & Persistence Techniques<i class="fas fa-user-secret skill-icon"></i></li>
-                        <li>PowerShell & DNS<i class="fas fa-code skill-icon"></i></li>
-                        <li>Automation & Scripting<i class="fas fa-cogs skill-icon"></i></li>
-                        <li>VPN & Tailscale<i class="fas fa-network-wired skill-icon"></i></li>
-                        <li>SIEM & Database Security<i class="fas fa-database skill-icon"></i></li>
+            <!-- Contact Info Block -->
+            <!-- Contact Info Block -->
+            <div style="text-align: center; margin-bottom: 2rem; color: var(--text-secondary);">
+                <p style="display: flex; justify-content: center; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                    <span><i class="fas fa-envelope" style="color: var(--primary-color); margin-right: 0.5rem;"></i>
+                        behnjaminhector04@gmail.com</span>
+                    <span style="margin: 0 0.5rem;">|</span>
+                    <span><i class="fas fa-phone" style="color: var(--primary-color); margin-right: 0.5rem;"></i>
+                        (931)-472-9818</span>
+                    <span style="margin: 0 0.5rem;">|</span>
+                    <span><i class="fas fa-map-marker-alt"
+                            style="color: var(--primary-color); margin-right: 0.5rem;"></i> Cookeville, TN</span>
+                </p>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <a href="BehnjaminBCyberSecurityResume.pdf" download class="btn btn-primary">
+                    <i class="fas fa-download"></i> Download PDF Version
+                </a>
+            </div>
+
+            <!-- Objective -->
+            <section>
+                <h2>Objective</h2>
+                <div class="card">
+                    <p>In a Degree Path Designated for Cyber Defense Education by the National Centers of Academic
+                        Excellence in Cybersecurity. I have a deep interest in cyber competitions like CCDC and CPTC and
+                        hope to pursue a career in a cyber crime related field.</p>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section>
+                <h2>Education</h2>
+                <div class="card">
+                    <h3 class="role-title">Tennessee Technological University (NCAE)</h3>
+                    <p class="company-name" style="color: var(--text-primary); margin-bottom: 0.5rem;">Cybercorps SFS
+                        Scholar</p>
+                    <p>In a Degree Path Designated for Cyber Defense Education by the National Centers of Academic
+                        Excellence in Cybersecurity.</p>
+                    <div style="margin-top: 1rem;">
+                        <p><strong>B.S. Computer Science | Cybersecurity</strong></p>
+                        <p><strong>M.S. Computer Science | Cybersecurity</strong> &bull; Expected: Fall 2027</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section>
+                <h2>Work Experience</h2>
+
+                <div class="timeline-item">
+                    <div class="role-title">Agile Scrum Master | TN Tech School of Music Adjudication System</div>
+                    <div class="date-range">Apr 2025 - Dec 2025</div>
+                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+                        <li>Served as Scrum Master for a 6-person team, coordinating sprints, managing the product
+                            backlog, and ensuring timely delivery of a digital music evaluation platform.</li>
+                        <li>Oversaw the design and implementation of security features, including Azure AD
+                            authentication, RBAC via SharePoint Groups, and strict Least-Privilege Enforcement.</li>
+                        <li>Successfully developed the platform entirely within the university's Microsoft 365 licensing
+                            (SharePoint, Power Automate, Teams), eliminating the need for third-party platforms.</li>
+                        <li>Directed the design of a NoSQL/List-based data model and managed core Power Automate
+                            workflows for automated data routing.</li>
                     </ul>
                 </div>
 
-                <div class="topic-line">
-                    <h2>Education</h2>
-                    <p><strong>Tennessee Technological University (NCAE)</strong></p>
-                    <p>Major: Computer Science Bachelor of Engineering | Cybersecurity</p>
-                    <p>Expected Graduation: Fall 2025</p>
-                    <br>
-                    <p>Major: Computer Science Masters of Engineering | Cybersecurity</p>
-                    <p>Expected Graduation: Fall 2027</p>
+                <div class="timeline-item">
+                    <div class="role-title">Cyber Range Application Developer</div>
+                    <div class="date-range">May 2025 - Aug 2025</div>
+                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+                        <li>Contributed to the development of Infrastructure as Code (IaC) solutions using Python,
+                            OpenTofu, and HashiCorp CDK.</li>
+                        <li>Automated the deployment and management of the CEROC Cyber Range on Canonical MicroCloud
+                            hypervisor.</li>
+                        <li>Troubleshot infrastructure problems and enhanced overall system functionality in
+                            collaboration with the Cyber Range Engineer.</li>
+                    </ul>
                 </div>
 
-                <div class="topic-line">
-                    <h2>Projects</h2>
-                    <div class="experience-item">
-                        <div class="experience-title">GoLang Network Mapper</div>
-                        <ul class="experience-description">
-                            <li>Developed a high-performance network scanning tool in Go that automates host discovery and vulnerability assessment using Nmap.</li>
-                            <li>Integrated ping scanning, concurrent scanning and wait groups for improved efficiency.</li>
-                            <li>Configured execution via config.json for dynamic subnet and flag attributes.</li>
-                            <li>Plans to expand this for tooling in competitive environments integrated with WEB&DB connection mappings.</li>
-                        </ul>
-                    </div>
+                <div class="timeline-item">
+                    <div class="role-title">Research: Satellite Security</div>
+                    <div class="date-range">Dec 2024 - Present</div>
+                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+                        <li>Conducting research in "Zero Trust" security for satellites built off the blockchain model.
+                        </li>
+                        <li>Developing encrypted verification methods to ensure trusted communication between satellites
+                            and ground stations.</li>
+                        <li>Designing a system incorporating load balancing and low power limitations.</li>
+                        <li>Building a physical testbed simulating a satellite constellation using Jetson Orin devices
+                            and Raspberry Pis to model network interactions.</li>
+                    </ul>
+                </div>
+            </section>
 
-                    <div class="experience-item">
-                        <div class="experience-title">Personal Website</div>
-                        <ul class="experience-description">
-                            <li>Developed a personal website showcasing experience, projects, and academia.</li>
-                            <li>Includes an "About Me" section, links to GitHub and LinkedIn, and detailed insights into cybersecurity work.</li>
-                            <li>Serves as a central hub for technical portfolio and professional presence.</li>
-                        </ul>
-                    </div>
+            <section>
+                <h2>Competition & Leadership Experience</h2>
 
-                    <div class="experience-item">
-                        <div class="experience-title">ESXi Home Lab</div>
-                        <ul class="experience-description">
-                            <li>Manage a home lab environment utilizing ESXi VE for virtualization.</li>
-                            <li>Utilize the lab for testing scripts, practicing cybersecurity skills, and personal project development.</li>
-                            <li>Implemented Tailscale for secure remote access to the home network and lab resources.</li>
-                            <li>Developed a web-based Network Attached Storage (NAS) solution using repurposed hardware.</li>
-                            <li>Integrating infrastructure upgrades including a Ubiquiti managed switch and UPS for reliability.</li>
-                        </ul>
+                <div class="timeline-item">
+                    <div class="role-title">Linux Subject Matter Expert | TN Tech CCDC Nationals Team</div>
+                    <div class="date-range">2025 - 2026</div>
+                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+                        <li>Designed and deployed custom automation scripts in Go and Bash to enforce security policy
+                            and audit user accounts across multiple Linux machines.</li>
+                        <li>Established proactive threat hunting and forensic capabilities to detect advanced Red Team
+                            persistence (covert beacons, kernel hooks, user-space rootkits).</li>
+                        <li>Engineered dynamic, isolated testing environments to validate hardening scripts and incident
+                            response procedures.</li>
+                        <li>Secured critical Linux services by implementing secure configurations, host-based firewalls,
+                            and file integrity monitoring.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="role-title">Web Application Penetration Tester | TN Tech CPTC Team</div>
+                    <div class="date-range">2025 - 2026</div>
+                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+                        <li>Conducted comprehensive web application penetration tests on multi-tiered live environments
+                            utilizing OWASP Top 10 methodology.</li>
+                        <li>Developed a holistic attack narrative by correlating web vulnerabilities with network-level
+                            findings to demonstrate full chain compromises.</li>
+                        <li>Authored professional-grade penetration test reports using Ghostwriter, detailing findings,
+                            business impact, and remediation strategies.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="role-title">Cyber Eagles President</div>
+                    <div class="date-range">May 2025 - Present</div>
+                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+                        <li>Engineered and deployed the Official Club Website (cybereagles.org) using free hosting for
+                            resource efficiency.</li>
+                        <li>Coordinated and hosted regular club meetings with guest speakers from leading tech companies
+                            and government agencies.</li>
+                        <li>Managed administrative operations, budgets, and outreach initiatives to increase club
+                            visibility and membership.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="role-title">Application Security Lead | TN Tech CCDC Nationals Team</div>
+                    <div class="date-range">2024 - 2025</div>
+                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+                        <li>Secured web applications and databases by hardening configurations and managing access
+                            controls.</li>
+                        <li>Hunted and neutralized real-time Red Team attacks by analyzing network traffic and
+                            investigating logs.</li>
+                        <li>Administered Linux systems and pfSense firewalls, performing OS hardening and security
+                            automation with Bash scripts.</li>
+                        <li>Architected and deployed a 16+ machine training environment simulating attack scenarios.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="role-title">Cyber Interest Group Mentor</div>
+                    <div class="date-range">Sep 2024 - Present</div>
+                    <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+                        <li>Developed and led technical training sessions on complex topics (digital forensics,
+                            privilege escalation, rootkits).</li>
+                        <li>Designed and delivered educational content and practical labs for diverse audiences.</li>
+                        <li>Utilized LXD cyber range with SaltStack to create secure, repeatable training environments.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            <section>
+                <h2>Projects</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div class="card">
+                        <h3 class="role-title">Cyber Truck Challenge 2025</h3>
+                        <p>Performed specialized security assessments targeting vehicle communication systems and
+                            embedded hardware. Analyzed CAN Bus/internal protocols and utilized deep analysis techniques
+                            to exploit vulnerabilities in a simulated automotive environment.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="role-title">Home Lab Cluster</h3>
+                        <p>Managed high-performance virtualization using dual Proxmox hypervisors (50 CPU cores, 200GB
+                            RAM). Established secure, isolated ranges for malware analysis and C2 testing. Automate lab
+                            functionality with Wake-on-LAN via Raspberry Pi.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="role-title">Personal Website (nightwalker.cv)</h3>
+                        <p>Established and maintained a permanent static website utilizing free hosting solutions.
+                            Configured custom domain to centralize professional content, GitHub repositories, and
+                            academic projects.</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div>
-                <div class="topic-line">
-                    <h2>Experience</h2>
-                    
-                    <h3>Internships</h3>
-                    <div class="experience-item">
-                        <div class="experience-title">Tennessee Tech Cyber Range Application Developer (05/25 - 08/25)</div>
-                        <ul class="experience-description">
-                            <li>Contributed to the development of Infrastructure as Code (IaC) solutions using Python, OpenTofu, and HashiCorp CDK.</li>
-                            <li>Helped to automate the deployment and management of the CEROC Cyber Range on the Canonical Microcloud hypervisor.</li>
-                            <li>Worked closely with the Cyber Range Engineer to troubleshoot infrastructure problems and enhance overall system functionality.</li>
-                        </ul>
+            <!-- Home Lab Topology -->
+            <section>
+                <h2>Home Lab Architecture</h2>
+                <div class="lab-diagram-container">
+                    <!-- ISP -->
+                    <div class="lab-node small-node">
+                        <i class="fas fa-globe"></i>
+                        <h4>Internet (ISP)</h4>
+                        <small>WAN</small>
                     </div>
 
-                    <h3>Research</h3>
-                    <div class="experience-item">
-                        <div class="experience-title">Satellite Security (12/24 - Present)</div>
-                        <ul class="experience-description">
-                            <li>Conducting research in "Zero Trust" security for satellites built off the blockchain model.</li>
-                            <li>Developing encrypted verification methods to ensure trusted communication between company-owned satellites and ground stations.</li>
-                            <li>Designing a system to dynamically distribute AI models across satellites for on-demand deployment while incorporating load balancing and low power limitations.</li>
-                            <li>Designing and building a physical testbed simulating a satellite constellation using 10 Jetson Orin devices as satellites and 5 Raspberry Pis as ground stations to model communication and network interactions.</li>
-                        </ul>
-                    </div>
+                    <!-- Connection Line -->
+                    <div class="h-line"></div>
 
-                    <h3>Campus Organizations</h3>
-                    <div class="experience-item">
-                        <div class="experience-title">Cyber Eagles President (05/25 - Present)</div>
-                        <ul class="experience-description">
-                            <li>Direct operations, planning, and member engagement for the university's cybersecurity organization.</li>
-                            <li>Coordinate and host regular meetings, securing guest speakers from leading technology companies and government agencies.</li>
-                            <li>Partner with university administration and student organizations to manage budgets, secure necessary funding, and ensure smooth club operations.</li>
-                            <li>Develop and execute outreach initiatives targeting related academic departments and student interest groups, increasing club visibility and participation.</li>
-                        </ul>
-                    </div>
+                    <!-- Home Network Container -->
+                    <div class="home-network-box">
+                        <div class="network-label">Home Network</div>
 
-                    <div class="experience-item">
-                        <div class="experience-title">Cyber Interest Group Mentor (09/24 - Present)</div>
-                        <ul class="experience-description">
-                            <li>Present defensive and offensive cybersecurity concepts clearly to diverse audiences.</li>
-                            <li>Utilize an LXD range and prepare individuals for real-world cybersecurity concepts.</li>
-                            <li>Foster a collaborative learning environment for students ranging from new to experienced.</li>
-                            <li>Liaise with other mentors and leads to ensure smooth execution of meetings.</li>
-                        </ul>
-                    </div>
+                        <!-- Powered Infrastructure Group -->
+                        <div class="powered-group">
+                            <div class="ups-label"><i class="fas fa-bolt"></i> UPS Protected</div>
 
-                    <div class="experience-item">
-                        <div class="experience-title">Application Security Lead | TN Tech CCDC Nationals Team (2024-2025)</div>
-                        <ul class="experience-description">
-                            <li>Secured live web applications and databases by hardening configurations, managing user access controls, and implementing network security policies.</li>
-                            <li>Hunted, detected, and neutralized real-time Red Team attacks by analyzing network traffic, investigating logs, and mitigating active threats.</li>
-                            <li>Administered Linux systems and pfSense firewalls, performing OS hardening, system auditing, and automating security tasks with Bash scripts.</li>
-                            <li>Architected and deployed a 16+ machine CCDC training environment, simulating realistic attack scenarios with vulnerable services (web, mail, domain).</li>
-                            <li>Executed offensive Red Team operations within the mock environment using SliverC2 and Realm to test persistence methods and improve defensive playbooks.</li>
-                        </ul>
-                    </div>
+                            <div class="network-content">
+                                <!-- Switch -->
+                                <div class="lab-node small-node">
+                                    <i class="fas fa-network-wired"></i>
+                                    <h4>Ubiquiti Switch</h4>
+                                    <small>Managed / VLANs</small>
+                                </div>
 
-                    <div class="experience-item">
-                        <div class="experience-title">Web Application Penetration Tester | TN Tech CPTC Team (Fall 2025 – Present)</div>
-                        <ul class="experience-description">
-                            <li>Selected for a competitive role to conduct comprehensive web application penetration tests in a live, multi-tiered environment.</li>
-                            <li>Identify and exploit critical vulnerabilities based on the OWASP Top 10, including SQL Injection (SQLi), Cross-Site Scripting (XSS), and authentication bypass flaws.</li>
-                            <li>Utilize industry-standard tools like Burp Suite and OWASP ZAP to map attack surfaces and analyze application logic.</li>
-                            <li>Apply advanced bug bounty hunting methodologies from the HTB CBBH certification to systematically uncover high-impact security flaws.</li>
-                            <li>Author professional-grade penetration test reports that detail findings, analyze business impact, and recommend actionable remediation strategies.</li>
-                        </ul>
+                                <!-- Connection Line -->
+                                <div class="h-line"></div>
+
+                                <!-- Tailscale -->
+                                <div class="lab-node">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <h4>Tailscale Router</h4>
+                                    <small>VPN Endpoint</small>
+                                </div>
+
+                                <!-- Connection Line -->
+                                <div class="h-line"></div>
+
+                                <!-- Branches -->
+                                <div class="lab-branches">
+
+                                    <!-- Proxmox Cluster -->
+                                    <div class="lab-node highlight-node">
+                                        <div class="node-badge">50 Cores / 220GB RAM</div>
+                                        <i class="fas fa-server"></i>
+                                        <h4>Proxmox Cluster</h4>
+                                        <small>Hypervisors</small>
+                                    </div>
+
+                                    <!-- NAS -->
+                                    <div class="lab-node">
+                                        <i class="fas fa-hdd"></i>
+                                        <h4>NAS Storage</h4>
+                                        <small>Raspberry Pi 5</small>
+                                    </div>
+
+                                    <!-- Forensics Lab -->
+                                    <div class="lab-node">
+                                        <i class="fas fa-microscope"></i>
+                                        <h4>Forensics Lab</h4>
+                                        <small>Optiplex Workstation</small>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            <!-- Skills -->
+            <section>
+                <h2>Technical Skills</h2>
+                <div class="skills-category-grid">
+
+                    <div class="skill-category">
+                        <h3>Offensive Cyber Tools</h3>
+                        <div class="skills-list">
+                            <span>Mythic C2</span>
+                            <span>SliverC2</span>
+                            <span>Kali Linux</span>
+                            <span>Burp Suite</span>
+                            <span>Hashcat</span>
+                            <span>Ninja Binary</span>
+                            <span>Ghidra</span>
+                            <span>Nmap</span>
+                            <span>Metasploit</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Defensive & Forensics</h3>
+                        <div class="skills-list">
+                            <span>WireShark</span>
+                            <span>Autopsy</span>
+                            <span>FTK Imager</span>
+                            <span>Iptables</span>
+                            <span>PfSense</span>
+                            <span>SIEM</span>
+                            <span>File Integrity Monitoring</span>
+                            <span>Kernel Hooks</span>
+                            <span>Rootkit Detection</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Infrastructure & Cloud</h3>
+                        <div class="skills-list">
+                            <span>Proxmox VE</span>
+                            <span>VMware / ESXi</span>
+                            <span>AWS & GCP</span>
+                            <span>Canonical MicroCloud</span>
+                            <span>OpenTofu</span>
+                            <span>HashiCorp CDK</span>
+                            <span>Ansible / Salt Stack</span>
+                            <span>Tailscale</span>
+                            <span>Zero Trust Arch</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Programming & DB</h3>
+                        <div class="skills-list">
+                            <span>Python</span>
+                            <span>Bash</span>
+                            <span>C++</span>
+                            <span>GoLang</span>
+                            <span>PowerShell</span>
+                            <span>SQL (MySQL, Postgres)</span>
+                            <span>NoSQL (MongoDB)</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-category">
+                        <h3>Soft Skills</h3>
+                        <div class="skills-list">
+                            <span>Written Communication</span>
+                            <span>Problem Solving</span>
+                            <span>Time Management</span>
+                            <span>Teamwork</span>
+                            <span>Critical Thinking</span>
+                            <span>Mentorship</span>
+                            <span>Public Speaking</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
         </div>
+    </main>
 
-        <div class="buttons">
-            <a href="https://github.com/bhbarlow" target="_blank" class="button">
-                <svg class="social-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                GitHub
-            </a>
-            <a href="https://linkedin.com/in/bhbarlow" target="_blank" class="button">
-                <svg class="social-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-                LinkedIn
-            </a>
-            <a href="resume.pdf" download class="button">
-                <svg class="social-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                </svg>
-                Download Resume
-            </a>
-        </div>
-    </div>
-<div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+    <footer
+        style="background-color: var(--surface-color); padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-color);">
+        <p>&copy; 2025 Behnjamin Barlow. All Rights Reserved.</p>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            particlesJS("particles-js", {
-                "particles": {
-                    "number": {
-                        "value": 80,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#00ff00"
-                    },
-                    "shape": {
-                        "type": "circle",
-                        "stroke": {
-                            "width": 0,
-                            "color": "#000000"
-                        }
-                    },
-                    "opacity": {
-                        "value": 0.5,
-                        "random": false
-                    },
-                    "size": {
-                        "value": 3,
-                        "random": true
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#00ff00",
-                        "opacity": 0.4,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 2,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false
-                    }
-                },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "grab"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "grab": {
-                            "distance": 140,
-                            "line_linked": {
-                                "opacity": 1
-                            }
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        }
-                    }
-                },
-                "retina_detect": true
-            });
+        const themeToggle = document.getElementById('theme-toggle');
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = 'light';
+
+            if (currentTheme !== 'dark') {
+                newTheme = 'dark';
+            }
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
         });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
     </script>
-    
 </body>
+
 </html>
+```

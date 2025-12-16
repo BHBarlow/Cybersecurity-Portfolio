@@ -1,358 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/wifi-alt.png" type="image/png">
-    <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Behnjamin Barlow - Cybersecurity Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Courier New", monospace;
-        }
-
-        body {
-            background-color: #0a0a0a;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #00ff00;
-            line-height: 1.6;
-            padding: 2rem;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 80%;
-            text-align: center;
-            z-index: 1;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px #00ff00;
-            animation: typing 3.5s steps(40, end),
-                blink-caret 0.75s step-end infinite;
-        }
-
-        .typing-effect {
-            overflow: hidden;
-            border-right: 0.15em solid #00ff00;
-            white-space: nowrap;
-            margin: 0 auto;
-            letter-spacing: 0.15em;
-        }
-
-        .description {
-            margin: 2rem 0;
-            font-size: 1.2rem;
-            color: #cccccc;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin: 2rem 0;
-        }
-
-        .nav-links a {
-            color: #00ff00;
-            text-decoration: none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            text-shadow: 0 0 10px #00ff00;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
-
-        .button {
-            padding: 0.8rem 1.5rem;
-            background-color: transparent;
-            border: 2px solid #00ff00;
-            color: #00ff00;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .button:hover {
-            background-color: #00ff00;
-            color: #0a0a0a;
-            box-shadow: 0 0 15px white;
-        }
-
-        @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
-        }
-
-        @keyframes blink-caret {
-            from,
-            to {
-                border-color: transparent;
-            }
-            50% {
-                border-color: #00ff00;
-            }
-        }
-
-        .social-icons {
-            width: 20px;
-            height: 20px;
-            fill: white;
-        }
-    </style>
 </head>
-<body>
-    <div class="container">
-        <h1 class="typing-effect">BEHNJAMIN BARLOW</h1>
-        <div class="description">
-            Cybersecurity Student | SFS Scholar | Reverse Engineering | Penetration Testing | Cyber Crime
-        </div>
-        
-        <div class="nav-links">
-            <a href="resume.html">Resume</a>
-            <a href="about.html">About Me</a>
-        </div>
-        
-        <div class="buttons">
-            <a href="https://github.com/bhbarlow" target="_blank" class="button">
-                <svg class="social-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-                GitHub
-            </a>
-            <a href="https://linkedin.com/in/bhbarlow" target="_blank" class="button">
-                <svg class="social-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
-                LinkedIn
-            </a>
-            <a href="BehnjaminBCyberSecurityResume.pdf" download class="button">
-                <svg class="social-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                </svg>
-                Resume
-            </a>
-        </div>
-        <div class="terminal-container" style="margin-top: 3rem; width: 100%; border: 2px solid #00ff00; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); overflow: hidden;">
-            <div style="background-color: #0a0a0a; padding: 5px 10px; border-bottom: 1px solid #00ff00;">
-                <span style="color: #00ff00; font-weight: bold;">Terminal</span>
-            </div>
-            <div id="terminal"></div>
-        </div>
-        <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
-    </div>
-    
 
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Behnjamin Barlow</a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="resume.html">Resume</a>
+                <a href="about.html">About Me</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="hero">
+            <div class="container">
+                <div style="margin-bottom: 2rem;">
+                    <img src="images/profile.jpg" alt="Profile" class="profile-img-large">
+                </div>
+                <div class="hero-content">
+                    <h1>Behnjamin Barlow</h1>
+                    <p class="hero-subtitle">
+                        Cybersecurity Student & SFS Scholar. Focusing on Defensive/Offensive Operations, Infrastructure,
+                        and Digital Forensics.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="resume.html" class="btn btn-primary">
+                            View Resume
+                        </a>
+                        <a href="about.html" class="btn btn-outline">
+                            About Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;" class="card">
+                <h2>Welcome</h2>
+                <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 1rem;">
+                    I am a senior at Tennessee Tech pursuing a M.S. in Cybersecurity.
+                    As a Cybercorps SFS scholar, I am dedicated to analyzing threats, securing systems, and building
+                    resilient infrastructure.
+                </p>
+                <div style="margin-top: 2rem;">
+                    <a href="about.html" class="btn btn-outline">Learn More About Me</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer
+        style="background-color: var(--surface-color); padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-color); margin-top: auto;">
+        <p>&copy; 2025 Behnjamin Barlow. All Rights Reserved.</p>
+    </footer>
 
     <script>
-        $(function() {
-            $('#terminal').terminal(function(command) {
-                const cmd = command.trim().toLowerCase();
-                
-                if (cmd === 'help') {
-                    return `Available commands:
-                            help - Show this help
-                            ls - List sections
-                            cat resume.txt - View resume
-                            cat about.txt - About me
-                            cat contact.md - Contact info
-                            view projects - List projects
-                            skills - Show skills
-                            clear - Clear terminal
-                            goto [page] - Navigate to page (resume, about)
-                            where am I? Whats running?`;
-                } else if (cmd === 'ls') {
-                    return 'resume.txt  about.txt  projects/  skills/  contact.md';
-                } else if (cmd === 'hostname -f') {
-                    return 'sloppyjoe.local.domain';
-                } else if (cmd === 'hostname -I') { // nice
-                    return '36.17.85.50';
-                } else if (cmd === 'exit') {
-                    window.close();
-                    return 'Attempting to close window...';
-                }  else if (cmd === 'ps -aux') {
-                    return `USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-                    root       1   0.0  0.1 169652  9488 ?        Ss   May01   0:12 /sbin/init splash
-                    root       327 0.0  0.1 236044 12288 ?        Ssl  May01   0:00 /usr/sbin/rsyslogd -n -iNONE
-                    root       666 2.3  1.5 458712 32768 ?        Ss   May01   1:34 /opt/hidden/dIIhost.exe --hidden --no-log
-                    www-data   412 0.0  0.2 108924 20480 ?        Ssl  May01   0:00 /usr/sbin/apache2 -k start
-                    ubuntu     789 0.0  0.1  14768 10240 pts/0    Ss   May01   0:00 bash`;
-                } else if (cmd === 'cat contact.md') {
-                    return 'Loading Contact info...\nName: Behnjamin Barlow\nEmail: bhbarlow42@tntech.edu\nPhone: 931-472-9818';
-                } else if (cmd === 'cat resume.txt') {
-                    return 'Loading resume...\n\nBehnjamin Barlow\nCybersecurity Student | SFS Scholar\n\nEducation: Tennessee Tech University\nMajor: Computer Science/Cybersecurity\n\nType "goto resume" to see full resume';
-                } else if (cmd === 'cat about.txt') {
-                    return 'I am a senior at Tennessee Tech pursuing a M.S in cybersecurity with a passion for advancing digital security practices. I\'m a Cybercorps SFS scholar in a degree path designated for Cyber Defense Education by the National Centers of Academic Excellence in cybersecurity.\n\nType "goto about" to learn more.';
-                } else if (cmd === 'view projects') {
-                    return 'Projects:\n1. GoLang Network Mapper\n2. ProxMox Home Lab\n3. Personal Website\n4. Satellite Security Research\n\nType "project [number]" for details';
-                } else if (cmd.startsWith('project ')) {
-                    const projectNum = cmd.split(' ')[1];
-                    if (projectNum === '1') {
-                        return 'GoLang Network Mapper:\n- High-performance network scanning tool in Go\n- Automates host discovery and vulnerability assessment\n- Uses Goroutines for concurrent scanning';
-                    } else if (projectNum === '2') {
-                        return 'ProxMox Home Lab:\n- Virtualization environment for testing and development\n- Used for practicing cybersecurity skills\n- Implemented with Tailscale for secure remote access';
-                    } else if (projectNum === '3') {
-                        return 'Personal Website:\n- Portfolio showcasing experience and projects\n- Built with HTML, CSS, and JavaScript\n- You\'re looking at it right now!';
-                    } else if (projectNum === '4') {
-                        return 'Satellite Security Research:\n- Zero Trust security for satellites using blockchain\n- Encrypted verification methods for satellite-to-ground communication\n- Built physical testbed with Jetson Orin devices and Raspberry Pis';
-                    } else {
-                        return `Project ${projectNum} not found. Type "view projects" to see available projects.`;
-                    }
-                } else if (cmd === 'skills') {
-                    return 'Technical Skills:\n- Linux Administration\n- Python, C++, GoLang\n- Penetration Testing\n- Reverse Engineering\n- Network Security\n- Infrastructure as Code\n\nSoft Skills:\n- Team Collaboration\n- Problem Solving\n- Communication\n- Adaptability\n\nType "goto resume" to see full skills list.';
-                } else if (cmd.startsWith('goto ')) {
-                    const page = cmd.split(' ')[1];
-                    if (page === 'resume') {
-                        window.location.href = 'resume.html';
-                        return 'Navigating to resume...';
-                    } else if (page === 'about') {
-                        window.location.href = 'about.html';
-                        return 'Navigating to about...';
-                    } else {
-                        return `Page "${page}" not found.`;
-                    }
-                } else {
-                    return `Command not found: ${command}. Type 'help' for available commands.`;
-                }
-            }, {
-                greetings: 'Welcome to Behnjamin\'s Terminal. Type "help" for available commands.',
-                prompt: 'visitor@bhbarlow:~$ ',
-                height: 300,
-                width: '100%',
-                background: 'rgba(10, 10, 10, 0.9)',
-                color: '#00ff00',
-                textAlign: 'left'
-            });
-            
-            // Override any potential text-align center from your site's CSS
-            $('.terminal').css('text-align', 'left');
-            $('.cmd').css('text-align', 'left');
-            $('.cmd-cursor').css('text-align', 'left');
-            $('.terminal-output').css('text-align', 'left');
+        const themeToggle = document.getElementById('theme-toggle');
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = 'light';
+
+            if (currentTheme !== 'dark') {
+                newTheme = 'dark';
+            }
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
         });
-        </script>
 
-
-        <!-- Particle stuff-->
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                particlesJS("particles-js", {
-                    "particles": {
-                        "number": {
-                            "value": 80,
-                            "density": {
-                                "enable": true,
-                                "value_area": 800
-                            }
-                        },
-                        "color": {
-                            "value": "#00ff00"
-                        },
-                        "shape": {
-                            "type": "circle",
-                            "stroke": {
-                                "width": 0,
-                                "color": "#000000"
-                            }
-                        },
-                        "opacity": {
-                            "value": 0.5,
-                            "random": false
-                        },
-                        "size": {
-                            "value": 3,
-                            "random": true
-                        },
-                        "line_linked": {
-                            "enable": true,
-                            "distance": 150,
-                            "color": "#00ff00",
-                            "opacity": 0.4,
-                            "width": 1
-                        },
-                        "move": {
-                            "enable": true,
-                            "speed": 2,
-                            "direction": "none",
-                            "random": false,
-                            "straight": false,
-                            "out_mode": "out",
-                            "bounce": false
-                        }
-                    },
-                    "interactivity": {
-                        "detect_on": "canvas",
-                        "events": {
-                            "onhover": {
-                                "enable": true,
-                                "mode": "grab"
-                            },
-                            "onclick": {
-                                "enable": true,
-                                "mode": "push"
-                            },
-                            "resize": true
-                        },
-                        "modes": {
-                            "grab": {
-                                "distance": 140,
-                                "line_linked": {
-                                    "opacity": 1
-                                }
-                            },
-                            "push": {
-                                "particles_nb": 4
-                            }
-                        }
-                    },
-                    "retina_detect": true
-                });
-            });
-            </script>
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+    </script>
 </body>
+
 </html>
