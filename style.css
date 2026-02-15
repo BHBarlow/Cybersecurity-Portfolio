@@ -1,8 +1,8 @@
 :root {
     /* Premium Cyber Agency Theme (Dark Default) */
-    --primary-color: #F26522;
-    /* HexLab Vibrant Orange */
-    --primary-hover: #ff7d3e;
+    --primary-color: #296484;
+    /* Azure Blue */
+    --primary-hover: #3a89b1;
     --background-color: #050505;
     /* Near Black */
     --surface-color: #0f0f0f;
@@ -13,15 +13,15 @@
     --border-color: #262626;
     --card-border: rgba(255, 255, 255, 0.08);
     /* Subtle white border for glass effect */
-    --glow-color: rgba(242, 101, 34, 0.15);
+    --glow-color: rgba(41, 100, 132, 0.15);
     --font-main: 'Inter', sans-serif;
     --font-mono: 'SF Mono', 'Fira Code', 'Fira Mono', monospace;
 }
 
 [data-theme="light"] {
     /* Light Theme - Clean Corporate */
-    --primary-color: #F26522;
-    --primary-hover: #d3541c;
+    --primary-color: #296484;
+    --primary-hover: #1e4d65;
     --background-color: #ffffff;
     --surface-color: #f4f4f5;
     --surface-hover: #e4e4e7;
@@ -29,7 +29,7 @@
     --text-secondary: #52525b;
     --border-color: #e4e4e7;
     --card-border: #e4e4e7;
-    --glow-color: rgba(242, 101, 34, 0.05);
+    --glow-color: rgba(41, 100, 132, 0.05);
 }
 
 .skill-tag,
@@ -64,8 +64,8 @@ body {
     background-color: var(--background-color);
     /* Deep multi-layered background */
     background-image:
-        radial-gradient(circle at 15% 50%, rgba(242, 101, 34, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 30%, rgba(242, 101, 34, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 15% 50%, rgba(41, 100, 132, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 30%, rgba(41, 100, 132, 0.08) 0%, transparent 40%),
         linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     background-size: 100% 100%, 100% 100%, 50px 50px, 50px 50px;
@@ -80,7 +80,7 @@ body {
 
 /* Ensure data-theme light has readable background */
 [data-theme="light"] body {
-    background-image: radial-gradient(circle at 50% 50%, rgba(242, 101, 34, 0.05) 0%, transparent 60%);
+    background-image: radial-gradient(circle at 50% 50%, rgba(41, 100, 132, 0.05) 0%, transparent 60%);
     background-size: 100% 100%;
 }
 
@@ -196,7 +196,7 @@ section {
     text-shadow: none;
 }
 
-/* Orange dot accent on logo */
+/* Azure dot accent on logo */
 .logo::after {
     content: ".";
     color: var(--primary-color);
@@ -243,16 +243,16 @@ section {
 
 .btn-primary {
     background-color: var(--primary-color);
-    color: #000000;
+    color: #ffffff;
     border-color: var(--primary-color);
 }
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
     border-color: var(--primary-hover);
-    box-shadow: 0 4px 12px rgba(255, 157, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(41, 100, 132, 0.3);
     transform: translateY(-1px);
-    color: #000000;
+    color: #ffffff;
 }
 
 .btn-outline {
@@ -379,7 +379,7 @@ section {
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 0 20px -5px rgba(242, 101, 34, 0.5);
+    box-shadow: 0 0 20px -5px rgba(41, 100, 132, 0.5);
     /* Glowing shadow instead of border */
     transition: transform 0.3s ease;
     border: none;
@@ -387,7 +387,7 @@ section {
 
 .profile-img-large:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 30px -5px rgba(242, 101, 34, 0.7);
+    box-shadow: 0 0 30px -5px rgba(41, 100, 132, 0.7);
 }
 
 /* Horizontal Network Diagram */
@@ -574,7 +574,7 @@ section {
     top: -10px;
     right: -10px;
     background: var(--primary-color);
-    color: #000;
+    color: #fff;
     font-size: 0.7rem;
     padding: 2px 6px;
     border-radius: 4px;
@@ -689,11 +689,11 @@ section {
     gap: 0.6rem;
 }
 
-/* Orange Bubbles for Skills */
+/* Azure Bubbles for Skills */
 .skills-list span {
     background: var(--primary-color);
-    color: #000;
-    /* Black text on orange for contrast */
+    color: #fff;
+    /* White text on azure for contrast */
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
     /* Pill shape */
@@ -709,7 +709,7 @@ section {
     /* Invert on hover for effect */
     color: var(--primary-color);
     border-color: var(--primary-color);
-    box-shadow: 0 4px 8px rgba(242, 101, 34, 0.2);
+    box-shadow: 0 4px 8px rgba(41, 100, 132, 0.2);
 }
 
 /* Modern Page Headers */
@@ -933,7 +933,7 @@ section {
 
 .social-link[aria-label="Email"]:hover {
     color: var(--primary-color);
-    box-shadow: 0 8px 25px rgba(242, 101, 34, 0.35);
+    box-shadow: 0 8px 25px rgba(41, 100, 132, 0.35);
 }
 
 /* Tooltip label on hover */
@@ -964,11 +964,11 @@ section {
 
     0%,
     100% {
-        box-shadow: 0 0 0 0 rgba(242, 101, 34, 0);
+        box-shadow: 0 0 0 0 rgba(41, 100, 132, 0);
     }
 
     50% {
-        box-shadow: 0 0 12px 2px rgba(242, 101, 34, 0.12);
+        box-shadow: 0 0 12px 2px rgba(41, 100, 132, 0.12);
     }
 }
 
