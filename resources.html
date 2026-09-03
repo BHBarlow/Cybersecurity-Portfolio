@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Behnjamin Barlow's curated cybersecurity resource list — tools, platforms, and references organized by field.">
+    <link rel="icon" href="images/wifi-alt.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Behnjamin Barlow - Resources</title>
+    <style>
+        /* Resources page specific styles */
+        .quick-jump-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            justify-content: flex-start;
+        }
+
+        .jump-pill {
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .jump-pill:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(41, 100, 132, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .resources-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .resource-category {
+            background-color: var(--surface-color);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            width: 100%;
+            scroll-margin-top: 120px;
+        }
+
+        .resource-category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            border-color: var(--primary-color);
+        }
+
+        [data-theme="light"] .resource-category {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .resource-category-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-family: var(--font-mono);
+            text-align: center;
+        }
+
+        .resource-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem 2rem;
+        }
+
+        @media (max-width: 650px) {
+            .resource-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .resource-list li {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .resource-list a {
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+            line-height: 1.3;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .resource-list a::before {
+            content: "\f054"; /* FontAwesome chevron-right */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            font-size: 0.7em;
+            margin-right: 8px;
+            margin-top: 5px;
+            opacity: 0.5;
+            transition: all 0.2s ease;
+        }
+        
+        .resource-list a:hover {
+            color: var(--primary-hover);
+            padding-left: 4px;
+        }
+
+        .resource-list a:hover::before {
+            opacity: 1;
+            color: var(--primary-color);
+            transform: translateX(3px);
+        }
+
+        .resource-note {
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.3;
+        }
+
+        .resources-intro {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .resources-intro p {
+            margin: 0 auto;
+            text-align: center;
+            max-width: 650px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Behnjamin Barlow</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="resume.html">Resume</a>
+                <a href="about.html">About Me</a>
+                <a href="resources.html" class="active">Resources</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="container">
+            <header class="page-header">
+                <span class="header-watermark">RESOURCES</span>
+                <h1 class="page-title">Resources</h1>
+                
+            </header>
+
+            <div class="quick-jump-nav">
+                <a href="#pentesting" class="jump-pill">Pentesting / Red Team</a>
+                <a href="#linux" class="jump-pill">Linux Persistence</a>
+                <a href="#web" class="jump-pill">Web App Sec</a>
+                <a href="#re" class="jump-pill">Rev Engineering / Pwn</a>
+                <a href="#malware" class="jump-pill">Malware Analysis</a>
+                <a href="#threat" class="jump-pill">Threat Hunting</a>
+                <a href="#dfir" class="jump-pill">DFIR</a>
+                <a href="#certs" class="jump-pill">Certifications</a>
+                <a href="#osint" class="jump-pill">OSINT / Recon</a>
+                <a href="#network" class="jump-pill">Network Security</a>
+                <a href="#hardware" class="jump-pill">Hardware</a>
+                <a href="#aviation" class="jump-pill">Aviation / Auto Cyber</a>
+                <a href="#crypto" class="jump-pill">Crypto / Stego</a>
+                <a href="#homelab" class="jump-pill">Homelab / Infra</a>
+                <a href="#ctf" class="jump-pill">CTF Platforms</a>
+                <a href="#foundations" class="jump-pill">Foundations</a>
+            </div>
+            
+            <div class="resources-grid">
+
+                <!-- Penetration Testing / Offensive / Red Team -->
+                <div class="resource-category" id="pentesting">
+                    <div class="resource-category-title"><i class="fas fa-biohazard" style="margin-right:8px; opacity:0.8;"></i> Penetration Testing / Offensive / Red Team</div>
+                    <ul class="resource-list">
+                        <li><a href="https://pentesterlab.com/exercises" target="_blank"
+                                rel="noopener noreferrer">PentesterLab — Exercises</a></li>
+                        <li><a href="https://viperone.gitbook.io/pentest-everything/writeups" target="_blank"
+                                rel="noopener noreferrer">Pentest Everything — Writeups</a></li>
+                        <li><a href="https://guide.offsecnewbie.com/pre-engagement" target="_blank"
+                                rel="noopener noreferrer">Rowbot's PenTest Notes — Pre-engagement</a></li>
+                        <li><a href="https://notes.incendium.rocks/pentesting-notes" target="_blank"
+                                rel="noopener noreferrer">Pentesting Notes (Incendium)</a></li>
+                        <li><a href="https://www.revshells.com/" target="_blank" rel="noopener noreferrer">Reverse Shell
+                                Generator (revshells)</a></li>
+                        <li><a href="https://webhook.site/" target="_blank" rel="noopener noreferrer">Webhook.site</a>
+                        </li>
+                        <li><a href="https://fuzzysecurity.com/tutorials/16.html" target="_blank"
+                                rel="noopener noreferrer">FuzzySecurity — Windows Privilege Escalation</a></li>
+                        <li><a href="https://www.hackingarticles.in/penetration-testing/" target="_blank"
+                                rel="noopener noreferrer">Hacking Articles - PenTesting</a></li>
+                        <li>
+                            <a href="https://github.com/Syslifters/sysreptor" target="_blank"
+                                rel="noopener noreferrer">SysReptor — Pentest reporting platform</a>
+                            <span class="resource-note">Markdown is best</span>
+                        </li>
+                        <li><a href="https://tradecraftgarden.org/index.html" target="_blank"
+                                rel="noopener noreferrer">Tradecraft Garden — PIC / implant research</a></li>
+                        <li><a href="https://www.atomicredteam.io/atomic-red-team" target="_blank"
+                                rel="noopener noreferrer">Atomic Red Team</a></li>
+                        <li><a href="https://github.com/rapid7/metasploit-framework" target="_blank"
+                                rel="noopener noreferrer">Metasploit — Exploitation framework</a></li>
+                        <li><a href="https://docs.metasploit.com/docs/using-metasploit/basics/how-to-use-msfvenom.html"
+                                target="_blank" rel="noopener noreferrer">msfvenom — Payload &amp; shellcode
+                                generator</a></li>
+                        <li><a href="https://github.com/BishopFox/sliver" target="_blank"
+                                rel="noopener noreferrer">Sliver — Cross-platform C2 framework</a></li>
+                        <li><a href="https://github.com/spellshift/realm" target="_blank"
+                                rel="noopener noreferrer">Realm (Spellshift) — Adversary emulation framework</a></li>
+                        <li><a href="https://github.com/nicocha30/ligolo-ng" target="_blank"
+                                rel="noopener noreferrer">Ligolo-ng — Tunneling &amp; pivoting tool</a></li>
+                        <li><a href="https://github.com/Pennyw0rth/NetExec" target="_blank"
+                                rel="noopener noreferrer">NetExec — Network service exploitation (ex-CrackMapExec)</a>
+                        </li>
+                        <li><a href="https://github.com/vanhauser-thc/thc-hydra" target="_blank"
+                                rel="noopener noreferrer">Hydra — Network login brute-forcer</a></li>
+                        <li><a href="https://github.com/Mebus/cupp" target="_blank" rel="noopener noreferrer">CUPP —
+                                Common User Passwords Profiler</a></li>
+                        <li><a href="https://github.com/danielmiessler/SecLists" target="_blank"
+                                rel="noopener noreferrer">SecLists — Wordlists for security testing</a></li>
+                        <li><a href="https://github.com/peass-ng/PEASS-ng" target="_blank"
+                                rel="noopener noreferrer">LinPEAS — Linux privesc enumeration</a></li>
+                        <li><a href="https://github.com/peass-ng/PEASS-ng/tree/master/winPEAS" target="_blank"
+                                rel="noopener noreferrer">WinPEAS — Windows privesc enumeration</a></li>
+                        <li><a href="https://github.com/rebootuser/LinEnum" target="_blank"
+                                rel="noopener noreferrer">LinEnum — Linux enum &amp; privesc checks</a></li>
+                        <li>
+                            <a href="https://book.hacktricks.wiki/" target="_blank" rel="noopener noreferrer">HackTricks
+                                — Pentest methodology wiki / bible</a>
+                            <span class="resource-note">Most-referenced wiki in the field</span>
+                        </li>
+                        <li>
+                            <a href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank"
+                                rel="noopener noreferrer">PayloadsAllTheThings — Payload &amp; technique cheatsheets</a>
+                            <span class="resource-note">Same author as Internal All The Things</span>
+                        </li>
+                        <li><a href="https://gtfobins.github.io/" target="_blank" rel="noopener noreferrer">GTFOBins —
+                                Linux living-off-the-land binaries</a></li>
+                        <li><a href="https://lolbas-project.github.io/" target="_blank" rel="noopener noreferrer">LOLBAS
+                                — Windows living-off-the-land binaries</a></li>
+                        <li>
+                            <a href="https://github.com/SpecterOps/BloodHound" target="_blank"
+                                rel="noopener noreferrer">BloodHound (CE) — Active Directory attack-path mapping</a>
+                            <span class="resource-note">The AD tool</span>
+                        </li>
+                        <li>
+                            <a href="https://github.com/fortra/impacket" target="_blank"
+                                rel="noopener noreferrer">Impacket — AD / network protocol toolkit</a>
+                            <span class="resource-note">secretsdump, psexec, etc.</span>
+                        </li>
+                        <li><a href="https://github.com/lgandx/Responder" target="_blank"
+                                rel="noopener noreferrer">Responder — LLMNR/NBT-NS poisoning</a></li>
+                    </ul>
+                </div>
+
+                <!-- Linux Persistence & Post-Exploitation -->
+                <div class="resource-category" id="linux">
+                    <div class="resource-category-title"><i class="fab fa-linux" style="margin-right:8px; opacity:0.8;"></i> Linux Persistence &amp; Post-Exploitation</div>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="https://pberba.github.io/security/" target="_blank"
+                                rel="noopener noreferrer">Threat Hunting Blog — pberba (Linux persistence series)</a>
+                            <span class="resource-note">Whole series lives here</span>
+                        </li>
+                        <li><a href="https://swisskyrepo.github.io/InternalAllTheThings/redteam/persistence/linux-persistence/"
+                                target="_blank" rel="noopener noreferrer">Internal All The Things — Linux
+                                Persistence</a></li>
+                        <li><a href="https://airman604.medium.com/9-ways-to-backdoor-a-linux-box-f5f83bae5a3c"
+                                target="_blank" rel="noopener noreferrer">9 Ways to Backdoor a Linux Box</a></li>
+                        <li><a href="https://flaviu.io/advanced-persistent-threat/" target="_blank"
+                                rel="noopener noreferrer">My Methods To Achieve Persistence (flaviu.io)</a></li>
+                        <li><a href="https://securityboulevard.com/2024/10/linux-persistence-mechanisms-and-how-to-find-them/"
+                                target="_blank" rel="noopener noreferrer">Linux Persistence Mechanisms &amp; How to Find
+                                Them</a></li>
+                        <li><a href="https://pberba.github.io/security/2021/11/23/linux-threat-hunting-for-persistence-account-creation-manipulation/"
+                                target="_blank" rel="noopener noreferrer">Hunting for Persistence in Linux Pt.2</a></li>
+                        <li>
+                            <a href="https://matheuzsecurity.github.io/hacking/linux-threat-hunting-persistence/"
+                                target="_blank" rel="noopener noreferrer">Linux Threat Hunting Persistence
+                                (0xMatheuZ)</a>
+                            <span class="resource-note">My Actual Goat for Linux threat hunting</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Web Application Security -->
+                <div class="resource-category" id="web">
+                    <div class="resource-category-title"><i class="fas fa-globe" style="margin-right:8px; opacity:0.8;"></i> Web Application Security</div>
+                    <ul class="resource-list">
+                        <li><a href="https://hacksplaining.com/" target="_blank" rel="noopener noreferrer">Hacksplaining
+                                — XSS/prevention</a></li>
+                        <li>
+                            <a href="https://github.com/vulnbank/vulnbank" target="_blank"
+                                rel="noopener noreferrer">vulnbank — Vulnerable app</a>
+                            <span class="resource-note">Good target to practice on.</span>
+                        </li>
+                        <li><a href="https://portswigger.net/burp" target="_blank" rel="noopener noreferrer">Burp Suite
+                                — Web proxy &amp; scanner</a></li>
+                        <li>
+                            <a href="https://caido.io/" target="_blank" rel="noopener noreferrer">Caido — Lightweight
+                                web pentest proxy</a>
+                            <span class="resource-note">'The new burp suite'</span>
+                        </li>
+                        <li><a href="https://www.zaproxy.org/" target="_blank" rel="noopener noreferrer">OWASP ZAP — Web
+                                app scanner &amp; crawler</a></li>
+                        <li>
+                            <a href="https://sqlmap.org/" target="_blank" rel="noopener noreferrer">sqlmap — Automated
+                                SQL injection tool</a>
+                            <span class="resource-note">Great for dumping databases for any SQL</span>
+                        </li>
+                        <li><a href="https://github.com/hahwul/dalfox" target="_blank" rel="noopener noreferrer">dalfox
+                                — Fast XSS scanner</a></li>
+                        <li>
+                            <a href="https://github.com/epi052/feroxbuster" target="_blank"
+                                rel="noopener noreferrer">feroxbuster — Content/directory brute-forcer</a>
+                            <span class="resource-note">Good for recursion and large websites</span>
+                        </li>
+                        <li>
+                            <a href="https://github.com/ffuf/ffuf" target="_blank" rel="noopener noreferrer">ffuf — Fast
+                                web fuzzer</a>
+                            <span class="resource-note">My Favorite</span>
+                        </li>
+                        <li><a href="https://github.com/s0md3v/Arjun" target="_blank" rel="noopener noreferrer">Arjun —
+                                HTTP parameter discovery</a></li>
+                        <li><a href="https://github.com/wpscanteam/wpscan" target="_blank"
+                                rel="noopener noreferrer">WPScan — WordPress vulnerability scanner</a></li>
+                        <li><a href="https://github.com/SamJoan/droopescan" target="_blank"
+                                rel="noopener noreferrer">droopescan — Drupal/SilverStripe CMS scanner</a></li>
+                        <li>
+                            <a href="https://portswigger.net/web-security" target="_blank"
+                                rel="noopener noreferrer">PortSwigger Web Security Academy — Free web hacking course</a>
+                            <span class="resource-note">Best-in-class, pairs with Burp</span>
+                        </li>
+                        <li>
+                            <a href="https://owasp.org/www-project-web-security-testing-guide/" target="_blank"
+                                rel="noopener noreferrer">OWASP Web Security Testing Guide (WSTG)</a>
+                            <span class="resource-note">The testing standard</span>
+                        </li>
+                        <li><a href="https://owasp.org/www-project-top-ten/" target="_blank"
+                                rel="noopener noreferrer">OWASP Top 10</a></li>
+                    </ul>
+                </div>
+
+                <!-- Reverse Engineering / Binary Exploitation / Pwn -->
+                <div class="resource-category" id="re">
+                    <div class="resource-category-title"><i class="fas fa-cogs" style="margin-right:8px; opacity:0.8;"></i> Reverse Engineering / Binary Exploitation / Pwn</div>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="https://pwn.college/" target="_blank" rel="noopener noreferrer">pwn.college</a>
+                            <span class="resource-note">My actual GOAT</span>
+                        </li>
+                        <li>
+                            <a href="https://ropemporium.com/" target="_blank" rel="noopener noreferrer">ROP
+                                Emporium</a>
+                            <span class="resource-note">Hard — very.</span>
+                        </li>
+                        <li><a href="https://exploit.education/phoenix/getting-started/" target="_blank"
+                                rel="noopener noreferrer">Exploit Education — Phoenix</a></li>
+                        <li><a href="https://crackmes.one/" target="_blank" rel="noopener noreferrer">Crackmes.one</a>
+                        </li>
+                        <li>
+                            <a href="https://microcorruption.com/map" target="_blank"
+                                rel="noopener noreferrer">Microcorruption</a>
+                            <span class="resource-note">Great for Embedded (eCTF)</span>
+                        </li>
+                        <li>
+                            <a href="https://ghidra-sre.org/" target="_blank" rel="noopener noreferrer">Ghidra — NSA
+                                reverse engineering suite (free)</a>
+                            <span class="resource-note">Free + strong decompiler</span>
+                        </li>
+                        <li>
+                            <a href="https://hex-rays.com/ida-free" target="_blank" rel="noopener noreferrer">IDA
+                                (Hex-Rays) — Industry-standard disassembler</a>
+                            <span class="resource-note">Pro is expensive, Free tier exists</span>
+                        </li>
+                        <li>
+                            <a href="https://binary.ninja/" target="_blank" rel="noopener noreferrer">Binary Ninja —
+                                Modern disassembler / decompiler</a>
+                            <span class="resource-note">Student disc. = personal license for $75</span>
+                        </li>
+                        <li>
+                            <a href="https://github.com/dnSpyEx/dnSpy" target="_blank" rel="noopener noreferrer">dnSpy
+                                (dnSpyEx fork) — .NET debugger &amp; assembly editor</a>
+                            <span class="resource-note">For .NET malware / crackmes</span>
+                        </li>
+                        <li><a href="https://x64dbg.com/" target="_blank" rel="noopener noreferrer">x64dbg — Windows
+                                debugger</a></li>
+                        <li><a href="https://cutter.re/" target="_blank" rel="noopener noreferrer">Cutter — Free
+                                Rizin/Ghidra-backed RE GUI</a></li>
+                        <li>
+                            <a href="https://dogbolt.org/" target="_blank" rel="noopener noreferrer">Decompiler Explorer
+                                (dogbolt)</a>
+                            <span class="resource-note">Great to compare different rev. tools</span>
+                        </li>
+                        <li>
+                            <a href="https://godbolt.org/" target="_blank" rel="noopener noreferrer">Compiler Explorer
+                                (godbolt)</a>
+                            <span class="resource-note">Great for visuals</span>
+                        </li>
+                        <li><a href="https://frida.re/" target="_blank" rel="noopener noreferrer">Frida — Dynamic
+                                instrumentation</a></li>
+                        <li><a href="https://lldb.llvm.org/use/tutorial.html" target="_blank"
+                                rel="noopener noreferrer">LLDB Tutorial</a></li>
+                        <li>
+                            <a href="https://www.onlinegdb.com/" target="_blank" rel="noopener noreferrer">GDB Online
+                                Debugger</a>
+                            <span class="resource-note">Use Pwndbg — tons of plugins for GDB like 'GEF' and
+                                'PEDA'</span>
+                        </li>
+                        <li><a href="https://luplab.gitlab.io/rvcodecjs/" target="_blank"
+                                rel="noopener noreferrer">rvcodec.js — RISC-V encoder/decoder</a></li>
+                        <li>
+                            <a href="https://syscall.sh/" target="_blank" rel="noopener noreferrer">Linux Syscalls —
+                                syscall.sh</a> / <a href="https://x64.syscall.sh/" target="_blank"
+                                rel="noopener noreferrer">x64.syscall.sh</a>
+                            <span class="resource-note">Super useful when writing/reading ASM</span>
+                        </li>
+                        <li><a href="https://www.tutorialspoint.com/c_standard_library/index.htm" target="_blank"
+                                rel="noopener noreferrer">C Standard Library Reference</a></li>
+                        <li>
+                            <a href="https://github.com/Gallopsled/pwntools" target="_blank"
+                                rel="noopener noreferrer">pwntools — CTF / exploit-dev framework</a>
+                            <span class="resource-note">Big one for pwn</span>
+                        </li>
+                        <li><a href="https://guyinatuxedo.github.io/" target="_blank"
+                                rel="noopener noreferrer">Nightmare — Free intro-to-advanced pwn/RE course</a></li>
+                    </ul>
+                </div>
+
+                <!-- Malware Analysis -->
+                <div class="resource-category" id="malware">
+                    <div class="resource-category-title"><i class="fas fa-bug" style="margin-right:8px; opacity:0.8;"></i> Malware Analysis</div>
+                    <ul class="resource-list">
+                        <li><a href="https://malware-traffic-analysis.net/training-exercises.html" target="_blank"
+                                rel="noopener noreferrer">Malware-Traffic-Analysis.net — Training</a></li>
+                        <li><a href="https://www.aquasec.com/blog/linux-syscall-hooking-using-tracee/" target="_blank"
+                                rel="noopener noreferrer">Hunting Rootkits with eBPF (Aqua)</a></li>
+                        <li>
+                            <a href="https://strace.io/" target="_blank" rel="noopener noreferrer">strace — Trace system
+                                calls &amp; signals</a>
+                            <span class="resource-note">Very useful tool to learn</span>
+                        </li>
+                        <li><a href="https://remnux.org/" target="_blank" rel="noopener noreferrer">REMnux — Linux
+                                distro for malware analysis</a></li>
+                        <li><a href="https://github.com/mandiant/flare-vm" target="_blank"
+                                rel="noopener noreferrer">FLARE-VM — Windows malware analysis VM (Mandiant)</a></li>
+                        <li><a href="https://github.com/kevoreilly/CAPEv2" target="_blank"
+                                rel="noopener noreferrer">CAPE Sandbox — Automated malware sandbox</a></li>
+                        <li><a href="https://www.inetsim.org/" target="_blank" rel="noopener noreferrer">INetSim — Fake
+                                network services for dynamic analysis</a></li>
+                        <li><a href="https://github.com/mandiant/capa" target="_blank" rel="noopener noreferrer">CAPA —
+                                Detect capabilities in executables (Mandiant)</a></li>
+                        <li><a href="https://github.com/horsicq/Detect-It-Easy" target="_blank"
+                                rel="noopener noreferrer">Detect It Easy (DIE) — Packer / PE identification</a></li>
+                        <li><a href="https://www.winitor.com/" target="_blank" rel="noopener noreferrer">PEStudio —
+                                Static PE triage</a></li>
+                        <li><a href="https://github.com/decalage2/oletools" target="_blank"
+                                rel="noopener noreferrer">oletools — Analyze malicious Office documents</a></li>
+                        <li><a href="https://systeminformer.sourceforge.io/" target="_blank"
+                                rel="noopener noreferrer">System Informer — Process / handle inspection (ex-Process
+                                Hacker)</a></li>
+                        <li>
+                            <a href="https://learn.microsoft.com/en-us/sysinternals/" target="_blank"
+                                rel="noopener noreferrer">Sysinternals — ProcMon, Autoruns, Process Explorer</a>
+                            <span class="resource-note">The Goat</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Threat Hunting / Detection -->
+                <div class="resource-category" id="threat">
+                    <div class="resource-category-title"><i class="fas fa-search" style="margin-right:8px; opacity:0.8;"></i> Threat Hunting / Detection</div>
+                    <ul class="resource-list">
+                        <li><a href="https://github.com/VirusTotal/yara" target="_blank" rel="noopener noreferrer">YARA
+                                — Pattern matching for malware ID</a></li>
+                        <li><a href="https://github.com/SigmaHQ/sigma" target="_blank" rel="noopener noreferrer">Sigma —
+                                Generic detection rule format</a></li>
+                        <li><a href="https://www.misp-project.org/" target="_blank" rel="noopener noreferrer">MISP —
+                                Threat intelligence sharing platform</a></li>
+                        <li><a href="https://github.com/Velocidex/velociraptor" target="_blank"
+                                rel="noopener noreferrer">Velociraptor — Endpoint DFIR &amp; threat hunting</a></li>
+                        <li><a href="https://securityonionsolutions.com/" target="_blank"
+                                rel="noopener noreferrer">Security Onion — Network security monitoring distro</a></li>
+                        <li><a href="https://wazuh.com/" target="_blank" rel="noopener noreferrer">Wazuh — Open-source
+                                SIEM / XDR</a></li>
+                    </ul>
+                </div>
+
+                <!-- Digital Forensics / DFIR -->
+                <div class="resource-category" id="dfir">
+                    <div class="resource-category-title"><i class="fas fa-fingerprint" style="margin-right:8px; opacity:0.8;"></i> Digital Forensics / DFIR</div>
+                    <ul class="resource-list">
+                        <li><a href="https://volatilityfoundation.org/" target="_blank"
+                                rel="noopener noreferrer">Volatility — Memory forensics</a></li>
+                        <li>
+                            <a href="https://www.autopsy.com/" target="_blank" rel="noopener noreferrer">Autopsy — GUI
+                                digital forensics platform</a>
+                            <span class="resource-note">Beginner friendly</span>
+                        </li>
+                        <li><a href="https://www.sleuthkit.org/" target="_blank" rel="noopener noreferrer">The Sleuth
+                                Kit — CLI disk / file-system forensics</a></li>
+                        <li>
+                            <a href="https://www.exterro.com/digital-forensics-software/ftk-imager" target="_blank"
+                                rel="noopener noreferrer">FTK Imager — Forensic disk imaging &amp; acquisition</a>
+                            <span class="resource-note">Beginner friendly</span>
+                        </li>
+                        <li><a href="https://www.kroll.com/en/services/cyber/incident-response-litigation-support/kroll-artifact-parser-extractor-kape"
+                                target="_blank" rel="noopener noreferrer">KAPE — Artifact collection &amp; parsing
+                                (Kroll)</a></li>
+                        <li><a href="https://ericzimmerman.github.io/" target="_blank" rel="noopener noreferrer">Eric
+                                Zimmerman's Tools — Windows artifact parsers</a></li>
+                        <li><a href="https://github.com/log2timeline/plaso" target="_blank"
+                                rel="noopener noreferrer">Plaso / log2timeline — Super-timeline generation</a></li>
+                        <li><a href="https://github.com/keydet89/RegRipper3.0" target="_blank"
+                                rel="noopener noreferrer">RegRipper — Windows registry forensics</a></li>
+                        <li><a href="https://sourceforge.net/projects/dban/" target="_blank"
+                                rel="noopener noreferrer">DBAN — Darik's Boot and Nuke (disk wipe)</a></li>
+                        <li><a href="https://www.hirensbootcd.org/download/" target="_blank"
+                                rel="noopener noreferrer">Hiren's BootCD PE</a></li>
+                        <li><a href="https://www.hddsuperclone.com/" target="_blank"
+                                rel="noopener noreferrer">HDDSuperClone</a></li>
+                        <li><a href="https://www.cleverfiles.com/data-recovery-software.html" target="_blank"
+                                rel="noopener noreferrer">Disk Drill — Data recovery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Certifications -->
+                <div class="resource-category" id="certs">
+                    <div class="resource-category-title"><i class="fas fa-certificate" style="margin-right:8px; opacity:0.8;"></i> Certifications</div>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="https://certifications.tcm-sec.com/" target="_blank" rel="noopener noreferrer">TCM
+                                Security — Certifications (PNPT, PJPT, PSAA, etc.)</a>
+                            <span class="resource-note">Not half bad</span>
+                        </li>
+                        <li>
+                            <a href="https://invokere.com/" target="_blank" rel="noopener noreferrer">Invoke RE —
+                                Malware analysis &amp; reverse engineering certs</a>
+                            <span class="resource-note">Great for RE</span>
+                        </li>
+                        <li>
+                            <a href="https://www.hackthebox.com/hacker/certifications" target="_blank"
+                                rel="noopener noreferrer">Hack The Box — Certifications (CPTS, CBBH, CDSA)</a>
+                            <span class="resource-note">Best bang for your buck</span>
+                        </li>
+                        <li>
+                            <a href="https://tryhackme.com/certifications" target="_blank"
+                                rel="noopener noreferrer">TryHackMe — Certifications (PT1, SAL1)</a>
+                            <span class="resource-note">It exists</span>
+                        </li>
+                        <li>
+                            <a href="https://training.zeropointsecurity.co.uk/courses/red-team-ops" target="_blank"
+                                rel="noopener noreferrer">Zero-Point Security — Red Team Ops (CRTO / CRTO II)</a>
+                            <span class="resource-note">Uses Cobalt Strike. Great — many club members hold it.</span>
+                        </li>
+                        <li><a href="https://training.zeropointsecurity.co.uk/courses/red-team-lead" target="_blank"
+                                rel="noopener noreferrer">Zero-Point Security — Red Team Lead (CRTL)</a></li>
+                        <li>
+                            <a href="https://www.offsec.com/courses-and-certifications/" target="_blank"
+                                rel="noopener noreferrer">OffSec — Certifications (OSCP, OSEP, OSED)</a>
+                            <span class="resource-note">Overpriced and overhyped</span>
+                        </li>
+                        <li>
+                            <a href="https://www.comptia.org/certifications/security" target="_blank"
+                                rel="noopener noreferrer">CompTIA Security+</a>
+                            <span class="resource-note">Good for Gov.</span>
+                        </li>
+                        <li>
+                            <a href="https://www.cisco.com/site/us/en/learn/training-certifications/certifications/index.html"
+                                target="_blank" rel="noopener noreferrer">Cisco — Certifications (CCNA / CyberOps)</a>
+                            <span class="resource-note">Good if you love networking</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- OSINT / Recon -->
+                <div class="resource-category" id="osint">
+                    <div class="resource-category-title"><i class="fas fa-eye" style="margin-right:8px; opacity:0.8;"></i> OSINT / Recon</div>
+                    <ul class="resource-list">
+                        <li><a href="https://osintframework.com/" target="_blank" rel="noopener noreferrer">OSINT
+                                Framework</a></li>
+                        <li><a href="https://dnsdumpster.com/" target="_blank" rel="noopener noreferrer">DNSDumpster</a>
+                        </li>
+                        <li><a href="https://lookup.icann.org/en/lookup" target="_blank" rel="noopener noreferrer">ICANN
+                                Domain Lookup</a></li>
+                        <li><a href="https://usersearch.org/" target="_blank" rel="noopener noreferrer">usersearch.org —
+                                Username lookup</a></li>
+                        <li><a href="https://www.flightradar24.com/" target="_blank"
+                                rel="noopener noreferrer">Flightradar24</a></li>
+                        <li><a href="https://portal.airspacelink.com/discover/advisories" target="_blank"
+                                rel="noopener noreferrer">No-Fly-Zone (AirspaceLink)</a></li>
+                        <li>
+                            <a href="https://nmap.org/" target="_blank" rel="noopener noreferrer">Nmap — Network mapper
+                                &amp; port scanner</a>
+                            <span class="resource-note">Also has pentesting use cases</span>
+                        </li>
+                        <li><a href="https://github.com/rfc1036/whois" target="_blank" rel="noopener noreferrer">whois —
+                                Domain/IP registration lookup</a></li>
+                        <li><a href="https://github.com/fwaeytens/dnsenum" target="_blank"
+                                rel="noopener noreferrer">dnsenum — DNS enumeration &amp; subdomains</a></li>
+                    </ul>
+                </div>
+
+                <!-- Network Security -->
+                <div class="resource-category" id="network">
+                    <div class="resource-category-title"><i class="fas fa-network-wired" style="margin-right:8px; opacity:0.8;"></i> Network Security</div>
+                    <ul class="resource-list">
+                        <li><a href="https://www.root-me.org/en/Challenges/Network/" target="_blank"
+                                rel="noopener noreferrer">Root-Me — Network challenges</a></li>
+                        <li><a href="https://johannst.github.io/notes/network/tshark.html" target="_blank"
+                                rel="noopener noreferrer">tshark Notes</a></li>
+                        <li><a href="https://book.systemsapproach.org/foundation/problem.html" target="_blank"
+                                rel="noopener noreferrer">Computer Networks: A Systems Approach (book)</a></li>
+                        <li><a href="https://vyos.io/" target="_blank" rel="noopener noreferrer">VyOS — Network OS</a>
+                        </li>
+                        <li><a href="https://www.wireshark.org/" target="_blank" rel="noopener noreferrer">Wireshark —
+                                Network protocol analyzer</a></li>
+                        <li><a href="https://www.tcpdump.org/" target="_blank" rel="noopener noreferrer">tcpdump —
+                                Command-line packet capture</a></li>
+                        <li>
+                            <a href="https://github.com/bpftrace/bpftrace" target="_blank"
+                                rel="noopener noreferrer">bpftrace — High-level eBPF tracing for Linux</a>
+                            <span class="resource-note">My Fav.</span>
+                        </li>
+                        <li><a href="https://github.com/gcla/termshark" target="_blank"
+                                rel="noopener noreferrer">Termshark — Terminal UI for tshark / Wireshark</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hardware / Firmware -->
+                <div class="resource-category" id="hardware">
+                    <div class="resource-category-title"><i class="fas fa-microchip" style="margin-right:8px; opacity:0.8;"></i> Hardware / Firmware</div>
+                    <ul class="resource-list">
+                        <li><a href="https://docs.u-boot-project.org/en/latest/" target="_blank"
+                                rel="noopener noreferrer">Das U-Boot — Bootloader docs</a></li>
+                        <li>
+                            <a href="https://www.csselectronics.com/pages/j1939-pgn-conversion-tool" target="_blank"
+                                rel="noopener noreferrer">J1939 PGN CAN ID converter (automotive/CAN bus)</a>
+                            <span class="resource-note">Good for semi-truck stuff</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Aviation / Automotive / Drone Cyber -->
+                <div class="resource-category" id="aviation">
+                    <div class="resource-category-title"><i class="fas fa-plane" style="margin-right:8px; opacity:0.8;"></i> Aviation / Automotive / Drone Cyber</div>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="https://www.cybertruckchallenge.org/" target="_blank"
+                                rel="noopener noreferrer">CyberTruck Challenge</a>
+                            <span class="resource-note">Great program — went last summer 2025. You get selected and it's
+                                all paid for; expect ~60 hrs of work that week.</span>
+                        </li>
+                        <li>
+                            <a href="https://www.cyberdrone-challenge.org/" target="_blank"
+                                rel="noopener noreferrer">CyberDrone Challenge</a>
+                            <span class="resource-note">Great program — same format as CyberTruck Challenge.</span>
+                        </li>
+                        <li><a href="https://tools.g4lxy.space/" target="_blank" rel="noopener noreferrer">Aerospace
+                                Hacking Tools (g4lxy)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Crypto / Encoding / Stego -->
+                <div class="resource-category" id="crypto">
+                    <div class="resource-category-title"><i class="fas fa-lock" style="margin-right:8px; opacity:0.8;"></i> Crypto / Encoding / Stego</div>
+                    <ul class="resource-list">
+                        <li><a href="https://www.jwt.io/" target="_blank" rel="noopener noreferrer">JWT.io</a></li>
+                        <li><a href="https://hashes.com/en/decrypt/hash" target="_blank"
+                                rel="noopener noreferrer">hashes.com — Hash decrypt/crack</a></li>
+                        <li><a href="https://outhorseyourstego.com/" target="_blank" rel="noopener noreferrer">Out Horse
+                                Your Stego — Steganography</a></li>
+                        <li><a href="https://crackstation.net/" target="_blank" rel="noopener noreferrer">CrackStation —
+                                Free password hash cracker (rainbow tables)</a></li>
+                        <li>
+                            <a href="https://gchq.github.io/CyberChef/" target="_blank"
+                                rel="noopener noreferrer">CyberChef — The Cyber Swiss Army Knife
+                                (encode/decode/analyze)</a>
+                            <span class="resource-note">The Goat</span>
+                        </li>
+                        <li>
+                            <a href="https://cryptohack.org/" target="_blank" rel="noopener noreferrer">CryptoHack —
+                                Hands-on cryptography challenges</a>
+                            <span class="resource-note">Best hands-on crypto learning</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Homelab / Infrastructure -->
+                <div class="resource-category" id="homelab">
+                    <div class="resource-category-title"><i class="fas fa-server" style="margin-right:8px; opacity:0.8;"></i> Homelab / Infrastructure</div>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="https://www.proxmox.com/en/proxmox-virtual-environment" target="_blank"
+                                rel="noopener noreferrer">Proxmox VE — Virtualization &amp; VM/container host</a>
+                            <span class="resource-note">The best bare-metal hypervisor, no doubt</span>
+                        </li>
+                        <li>
+                            <a href="https://guacamole.apache.org/" target="_blank" rel="noopener noreferrer">Apache
+                                Guacamole — Clientless remote desktop gateway</a>
+                            <span class="resource-note">VNC is trash — use Guac</span>
+                        </li>
+                        <li>
+                            <a href="https://github.com/fosrl/pangolin" target="_blank"
+                                rel="noopener noreferrer">Pangolin — Self-hosted WireGuard reverse-proxy tunnel</a>
+                            <span class="resource-note">Super cool and useful for homelabs</span>
+                        </li>
+                        <li>
+                            <a href="https://tailscale.com/" target="_blank" rel="noopener noreferrer">Tailscale —
+                                WireGuard-based mesh VPN</a>
+                            <span class="resource-note">The Goat</span>
+                        </li>
+                        <li>
+                            <a href="https://www.terraform.io/" target="_blank" rel="noopener noreferrer">Terraform —
+                                Infrastructure-as-code provisioning</a>
+                            <span class="resource-note">How we make labs — great for automating things.</span>
+                        </li>
+                        <li><a href="https://opentofu.org/" target="_blank" rel="noopener noreferrer">OpenTofu —
+                                Open-source Terraform fork (IaC)</a></li>
+                        <li>
+                            <a href="https://github.com/ansible/ansible" target="_blank"
+                                rel="noopener noreferrer">Ansible — IT automation &amp; orchestration</a>
+                            <span class="resource-note">Great for all other uses — basically SSH to run commands</span>
+                        </li>
+                        <li>
+                            <a href="https://github.com/saltstack/salt" target="_blank" rel="noopener noreferrer">Salt —
+                                Infra automation &amp; config management</a>
+                            <span class="resource-note">Great when upstream is blocked — master reaches down to its
+                                'minions'. The cyber range uses this.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- CTF / Competitions / Practice Platforms -->
+                <div class="resource-category" id="ctf">
+                    <div class="resource-category-title"><i class="fas fa-flag" style="margin-right:8px; opacity:0.8;"></i> CTF / Competitions / Practice Platforms</div>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="https://ctftime.org/event/list/upcoming" target="_blank"
+                                rel="noopener noreferrer">CTFtime</a>
+                            <span class="resource-note">Great for finding a CTF to do</span>
+                        </li>
+                        <li>
+                            <a href="https://cyberskyline.com/events/ncl/dashboard/student" target="_blank"
+                                rel="noopener noreferrer">National Cyber League — Cyber Skyline</a>
+                            <span class="resource-note">Great beginner CTF</span>
+                        </li>
+                        <li>
+                            <a href="https://nsa-codebreaker.org/resources" target="_blank"
+                                rel="noopener noreferrer">NSA Codebreaker Challenge</a>
+                            <span class="resource-note">Low-level RE. Resources page has free materials.</span>
+                        </li>
+                        <li>
+                            <a href="https://primer.cylabacademy.org/" target="_blank" rel="noopener noreferrer">The CTF
+                                Primer — CyLab</a>
+                            <span class="resource-note">Notes from CyLabs</span>
+                        </li>
+                        <li>
+                            <a href="https://cylabacademy.org/" target="_blank"
+                                rel="noopener noreferrer">Cylab-Academy</a>
+                            <span class="resource-note">The new picoCTF</span>
+                        </li>
+                        <li>
+                            <a href="https://academy.hackthebox.com/" target="_blank"
+                                rel="noopener noreferrer">HackTheBox Academy</a>
+                            <span class="resource-note">My Goat</span>
+                        </li>
+                        <li>
+                            <a href="https://tryhackme.com/" target="_blank" rel="noopener noreferrer">TryHackMe —
+                                Guided hands-on rooms &amp; learning paths</a>
+                            <span class="resource-note">Lots of free content — but HTB is better</span>
+                        </li>
+                        <li>
+                            <a href="https://titanturtles.org/" target="_blank" rel="noopener noreferrer">TitanTurtles
+                                Cybersecurity Club</a>
+                            <span class="resource-note">Cyber Patriot images</span>
+                        </li>
+                        <li><a href="https://www.vulnhub.com/" target="_blank" rel="noopener noreferrer">VulnHub —
+                                Downloadable vulnerable VMs</a></li>
+                        <li><a href="https://ippsec.rocks/" target="_blank" rel="noopener noreferrer">IppSec —
+                                Searchable index of HTB walkthrough videos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Foundations / Programming Support -->
+                <div class="resource-category" id="foundations">
+                    <div class="resource-category-title"><i class="fas fa-code" style="margin-right:8px; opacity:0.8;"></i> Foundations / Programming Support</div>
+                    <ul class="resource-list">
+                        <li>
+                            <a href="https://www.boot.dev/courses" target="_blank" rel="noopener noreferrer">Boot.dev —
+                                Courses / Git</a>
+                            <span class="resource-note">Expensive but good</span>
+                        </li>
+                        <li>
+                            <a href="https://www.codedex.io/home" target="_blank" rel="noopener noreferrer">Codedex</a>
+                            <span class="resource-note">Little pixelated game (costs money)</span>
+                        </li>
+                        <li>
+                            <a href="https://nandgame.com/" target="_blank" rel="noopener noreferrer">NandGame — Build a
+                                computer from scratch</a>
+                            <span class="resource-note">If you hate yourself</span>
+                        </li>
+                        <li>
+                            <a href="https://carbon.now.sh/" target="_blank" rel="noopener noreferrer">Carbon — Code
+                                screenshots</a>
+                            <span class="resource-note">Used for slides sometimes</span>
+                        </li>
+                        <li><a href="https://www.nand2tetris.org/" target="_blank" rel="noopener noreferrer">Nand2Tetris
+                                — Build a working computer from NAND gates up</a></li>
+                        <li><a href="https://linuxjourney.com/" target="_blank" rel="noopener noreferrer">Linux Journey
+                                — Free intro to Linux fundamentals</a></li>
+                        <li><a href="https://exercism.org/" target="_blank" rel="noopener noreferrer">Exercism — Free
+                                practice in 70+ languages w/ mentoring</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer
+        style="background-color: var(--surface-color); padding: 2rem 0; text-align: center; border-top: 1px solid var(--border-color); margin-top: 4rem;">
+        <p>&copy; 2025 Behnjamin Barlow. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const icon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            updateIcon(savedTheme);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            let newTheme = 'light';
+
+            if (currentTheme !== 'dark') {
+                newTheme = 'dark';
+            }
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if (theme === 'dark') {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        }
+    </script>
+</body>
+
+</html>
